@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #hi{
+            height: 100px;
+            width: 100px;
+            background-color: blueviolet;
+            position: absolute;
+            top : 20px;
+            right : 50px;
+        }
+    </style>
+</head>
+<body>
+    <div id="hi">Helloo</div>
+</body>
+<script>
+    const hello = document.querySelector('#hi')
+    let res=hello.getBoundingClientRect()
+    console.log(res)
+</script>
+</html>

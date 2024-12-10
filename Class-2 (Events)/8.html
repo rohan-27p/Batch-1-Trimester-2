@@ -13,10 +13,87 @@
 
     <script>
       //    Q Create a button that is destroyed by clicking on it but two new buttons are created in it's place.
-
+      let rem = document.querySelector('.double')
+rem.addEventListener('click', function(e) {
+  e.target.remove();
+  let dbl = document.querySelector('#doubleHolder')
+  let btn1 = document.createElement('button')
+  btn1.textContent = 'double'
+  btn1.className = 'double'
+  btn1.addEventListener('click', function() {
+    btn1.remove();
+    // create two new buttons
+    let newBtn1 = document.createElement('button')
+    newBtn1.textContent = 'double'
+    newBtn1.className = 'double'
+    dbl.appendChild(newBtn1)
+    
+    let newBtn2 = document.createElement('button')
+    newBtn2.textContent = 'double'
+    newBtn2.className = 'double'
+    dbl.appendChild(newBtn2)
+  })
+  dbl.appendChild(btn1)
+  
+  let btn2 = document.createElement('button')
+  btn2.textContent = 'double'
+  btn2.className = 'double'
+  btn2.addEventListener('click', function() {
+    btn2.remove();
+    // create two new buttons
+    let newBtn1 = document.createElement('button')
+    newBtn1.textContent = 'double'
+    newBtn1.className = 'double'
+    dbl.appendChild(newBtn1)
+    
+    let newBtn2 = document.createElement('button')
+    newBtn2.textContent = 'double'
+    newBtn2.className = 'double'
+    dbl.appendChild(newBtn2)
+  })
+  dbl.appendChild(btn2)
+})
      
      
      
+      /*
+      let doubleHolder = document.querySelector('#doubleHolder')
+  let newButton1 = document.createElement('button')
+  newButton1.textContent = 'double'
+  newButton1.className = 'double'
+  newButton1.addEventListener('click', function() {
+    newButton1.remove();
+    
+    let newButton11 = document.createElement('button')
+    newButton11.textContent = 'double'
+    newButton11.className = 'double'
+    doubleHolder.appendChild(newButton11)
+    
+    let newButton12 = document.createElement('button')
+    newButton12.textContent = 'double'
+    newButton12.className = 'double'
+    doubleHolder.appendChild(newButton12)
+  })
+  doubleHolder.appendChild(newButton1)
+  
+  let newButton2 = document.createElement('button')
+  newButton2.textContent = 'double'
+  newButton2.className = 'double'
+  newButton2.addEventListener('click', function() {
+    newButton2.remove();
+    
+    let newButton21 = document.createElement('button')
+    newButton21.textContent = 'double'
+    newButton21.className = 'double'
+    doubleHolder.appendChild(newButton21)
+    
+    let newButton22 = document.createElement('button')
+    newButton22.textContent = 'double'
+    newButton22.className = 'double'
+    doubleHolder.appendChild(newButton22)
+  })
+  doubleHolder.appendChild(newButton2)
+})*/
     </script>
   </body>
 </html>

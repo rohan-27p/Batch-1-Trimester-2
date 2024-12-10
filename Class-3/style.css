@@ -1,0 +1,109 @@
+* {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #e3f2fd, #90caf9);
+}
+
+.container {
+    width: 100%;
+    max-width: 400px;
+    margin: auto;
+    background: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    padding: 25px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+    text-align: center;
+    color: #333333;
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+form > * {
+    display: block;
+    margin: 20px auto;
+}
+
+input,
+textarea {
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 12px;
+    font-size: 1.1em;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    background-color: #f9f9f9;
+}
+
+input:focus,
+textarea:focus {
+    outline: none;
+    border-color: #42a5f5;
+    box-shadow: 0 0 8px rgba(66, 165, 245, 0.5);
+}
+
+textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+#submit {
+    padding: 12px;
+    background: linear-gradient(90deg, #42a5f5, #1e88e5);
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.1em;
+    font-weight: bold;
+    transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 10px rgba(66, 165, 245, 0.3);
+}
+
+#submit:hover {
+    cursor: pointer;
+    background: linear-gradient(90deg, #1e88e5, #1565c0);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(33, 150, 243, 0.4);
+}
+
+#submit:active {
+    transform: translateY(0);
+    box-shadow: 0 3px 8px rgba(33, 150, 243, 0.4);
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 1.5em;
+    }
+
+    input,
+    textarea {
+        font-size: 1em;
+    }
+
+    #submit {
+        font-size: 1em;
+        padding: 10px;
+    }
+}

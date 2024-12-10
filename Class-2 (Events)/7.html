@@ -32,21 +32,52 @@
 
     <script>
       // Q- Make remove all button work  and make individual delete btn work
+       let cringe = document.querySelector('#removeAll')
+       let all = document.querySelector('ul')
+       cringe.addEventListener('click',function(e){
+        while (all.firstChild) {
+          all.removeChild(all.firstChild);
+        }
+       })
+
+       let d = document.querySelectorAll('.delete_button')
+      
+       d.forEach(function(e){
+        e.addEventListener('click',function(){
+         e.parentElement.remove();
+        })
+       })
+
+       /*
+       
+       let d = document.querySelectorAll('.delete_button')
+       for(let i=0 ; i<d.length ; i++){
+        d[i].addEventListener('click',function(){
+         d[i].parentElement.remove();
+        })
+       }*/
+       
+      //  let d1 = document.querySelector('.delete_button')
+      //  let del1 = document.querySelector('li')
+      //  d1.addEventListener('click',function(){
+      //   del1.remove();
+      //  })
+       
+      //  let d2 = document.querySelector('.delete_button')
+      //  let del2 = document.querySelector('li')
+      //  d2.addEventListener('click',function(){
+      //   del2.remove();
+      //  })
+       
+      //  let d3 = document.querySelector('.delete_button')
+      //  let del3 = document.querySelector('li')
+      //  d3.addEventListener('click',function(){
+      //   del3.remove();
+      //  })
 
       //   Solution:
     
       // Individual delete buttons
-
-    
-
-
-
-
-
-   
-      
-
-
       
     </script>
   </body>

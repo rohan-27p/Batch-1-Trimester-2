@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<<<<<<< HEAD
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
@@ -22,5 +23,36 @@
     const hello = document.querySelector('#hi')
     let res=hello.getBoundingClientRect()
     console.log(res)
+=======
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    #hello{
+      height: 150px;
+      width: 150px;
+      background-color: blue;
+      position: absolute;
+      top : 20px
+
+
+    }
+  </style>
+</head>
+<body>
+
+  <div id="hello">Hello</div>
+  
+</body>
+
+<script>
+
+  const helloDiv = document.querySelector('#hello')
+
+  const results = helloDiv.getBoundingClientRect()
+
+  console.log(results)
+>>>>>>> c815759a34ff2d8ae2736321ea3f1e12ce5a238b
 </script>
 </html>

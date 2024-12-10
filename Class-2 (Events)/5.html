@@ -115,6 +115,12 @@
       const dropdDown = document.querySelector('select')
        console.log(dropdDown)
 
+<<<<<<< HEAD
+=======
+       const dropdDown = document.querySelector('select')
+       console.log(dropdDown)
+
+>>>>>>> c815759a34ff2d8ae2736321ea3f1e12ce5a238b
        dropdDown.addEventListener('change' , function(){
            const filterVal = dropdDown.value
            console.log(filterVal)
@@ -126,6 +132,7 @@
           if(allPrices[i].getAttribute('data-category')==filterVal ){
              allPrices[i].parentElement.style.display='block'
           }
+<<<<<<< HEAD
           else{
             
             allPrices[i].parentElement.style.display='none'
@@ -134,6 +141,24 @@
 
            }
        })
+=======
+          
+          else{
+            allPrices[i].parentElement.style.display='none'
+          }
+          
+          
+           }
+
+
+
+
+
+
+       })
+
+
+>>>>>>> c815759a34ff2d8ae2736321ea3f1e12ce5a238b
      
     </script>
   </body>

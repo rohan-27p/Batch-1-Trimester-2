@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Star Rating Component</title>
+  <style>
+    body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.rating {
+  text-align: center;
+}
+
+.star {
+  font-size: 24px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.star.filled {
+  color: gold;
+}
+  </style>
+</head>
+<body>
+  <div class="rating">
+    <!-- Display five stars, each with a data-value attribute representing its rating value -->
+    <span id="stars">
+      <span class="star" data-value="1">&#9733;</span>
+      <span class="star" data-value="2">&#9733;</span>
+      <span class="star" data-value="3">&#9733;</span>
+      <span class="star" data-value="4">&#9733;</span>
+      <span class="star" data-value="5">&#9733;</span>
+    </span>
+    <!-- Display the current rating -->
+    <p>Rating: <span id="rating">0</span>/5</p>
+  </div>
+  <script>
+  // Get all star elements
+const stars = document.querySelectorAll('.star');
+
+// Get the rating display element
+const ratingDisplay = document.getElementById('rating');
+
+// Add a click event listener to each star
+stars.forEach(star => {
+  star.addEventListener('click', () => {
+    // Get the value from the data-value attribute
+    const value = parseInt(star.getAttribute('data-value'));
+    // Update the rating display and stars based on the clicked value
+    updateRating(value);
+  });
+});
+
+// Function to update the rating display and filled stars
+function updateRating(value) {
+  stars.forEach(star => {
+    // Get the value from the data-value attribute
+    const starValue = parseInt(star.getAttribute('data-value'));
+    // Toggle the 'filled' class based on whether the star's value is less than or equal to the selected value
+    star.classList.toggle('filled', starValue <= value);
+  });
+  // Update the rating display text content
+  ratingDisplay.textContent = value;
+}
+
+  </script>
+</body>
+</html>

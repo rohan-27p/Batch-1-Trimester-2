@@ -27,18 +27,55 @@
 
 // methods
 
-   const now = new Date()
+//    const now = new Date()
 
-   console.log(now)
+//    console.log(now)
 
-   console.log(now.getFullYear()) // 2024
-   console.log(now.getMonth()) // 0-Jan , 11 - dec
-   console.log(now.getDate()) // 10
-   console.log(now.getHours()) //10
-   console.log(now.getMinutes()) // 34
-   console.log(now.getSeconds()) // 45
-   console.log(now.getMilliseconds()) // 987
+//    console.log(now.getFullYear()) // 2024
+//    console.log(now.getMonth()) // 0-Jan , 11 - dec
+//    console.log(now.getDate()) // 10
+//    console.log(now.getHours()) //10
+//    console.log(now.getMinutes()) // 34
+//    console.log(now.getSeconds()) // 45
+//    console.log(now.getMilliseconds()) // 987
+
+
+//    calculate the date difference
+
+let date1 = new Date('2024-11-01')
+let date2 = new Date('2024-12-10')
+
+console.log(date1)
+console.log(date2)
+
+const differenceinMs =  date2- date1
+
+const differenceinDays = differenceinMs/ (1000 * 60 *60 * 24 *30)
+
+console.log(differenceinMs)
+console.log(differenceinDays.toFixed(0) + " months")
    
+
+
+// time
+
+// calculate time left till christmas
+
+const eventDate = new Date("2024-12-25") // christmas
+
+const now  = new Date() // current date
+
+let timeLeft = eventDate - now
+
+let timeLeftinDays = Math.floor(timeLeft/(1000 * 60 *60 * 24))
+
+console.log("time Left till Christmas -> " , timeLeftinDays)
+
+
+
+
+
+
 
 
 

@@ -1,69 +1,122 @@
-*{
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-.toolbox-cont{
-    height: 5rem;
-    background-color: #4b4b4b;
-    display: flex;
-    align-items: center;
-
+.toolbox-cont {
+  height: 5rem;
+  background-color: #4b4b4b;
+  display: flex;
+  align-items: center;
 }
 
-
-.toolbox-priority-cont{
-    height: 3.5rem;
-    width: 18rem;
-    background-color:#3b3b3b;
-    margin-left: 4rem;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
+.toolbox-priority-cont {
+  height: 3.5rem;
+  width: 18rem;
+  background-color: #3b3b3b;
+  margin-left: 4rem;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
-
-.lightpink{
-    background-color: lightpink;
+.lightpink {
+  background-color: lightpink;
 }
 
 .lightgreen {
-   background-color: lightgreen;
+  background-color: lightgreen;
 }
 
-.lightblue{
- background-color: lightblue;
-} 
+.lightblue {
+  background-color: lightblue;
+}
 
-.black{
+.black {
   background-color: black;
 }
 
-
-
-.color{
-    height: 1.5rem;
-    width: 3rem;
-   
+.color {
+  height: 1.5rem;
+  width: 3rem;
 }
 
 /* action button container design */
 
-.action-btn-cont{
-    height: 3.5rem;
-    width:8rem ;
-    background-color: #3b3b3b ;
-    margin-left: 3rem;
-    display: flex;
-    align-items: center;
-    
+.action-btn-cont {
+  height: 3.5rem;
+  width: 8rem;
+  background-color: #3b3b3b;
+  margin-left: 3rem;
+  display: flex;
+  align-items: center;
+}
+
+.action-btn-cont > * {
+  width: 50%;
+  color: white;
+  font-size: 2rem;
+  text-align: center;
+}
+
+/* Ticket design */
+
+.main-cont {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.ticket-cont {
+  height: 12rem;
+  width: 15rem;
+  background-color: coral;
+  border-radius: 20px;
+}
+
+.ticket-color {
+  height: 1.5rem;
+  background-color: lightpink;
+  border-radius: 5px;
+}
+.ticket-id {
+  height: 1.8rem;
+  background-color: yellow;
+}
+
+/* Pop Up Modal design */
+.modal-cont{
+  height:50vh ;
+  width:45vw ;
+  background-color: gray;
+  position: absolute;
+  top : 30%;
+  left : 27%;
+  display: flex;
+}
+
+.textArea-cont{
+    height: 100%;
+    width: 70%;
+    resize: none;
+}
+
+.priority-color{
+    height: 3rem;
+    width: 5rem;
     
 }
 
-.action-btn-cont>*{
-    width: 50%;
-    color: white;
-    font-size: 2rem;
-    text-align: center;
+.priority-colors-container{
+   width:30% ;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-evenly;
+   align-items: center;
 }
+
+
+
+

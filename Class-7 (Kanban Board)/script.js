@@ -1,4 +1,5 @@
 const addBtn = document.querySelector(".add-btn");
+const removeBtn = document.querySelector('.remove-btn')
 const modalCont = document.querySelector(".modal-cont");
 const taskArea = document.querySelector(".textArea-cont");
 const mainCont = document.querySelector('.main-cont')
@@ -7,6 +8,7 @@ const allpriorityColors = document.querySelectorAll('.priority-color')
 console.log(allpriorityColors)
 
 let addBtnFlag = false;
+let removeBtnFlag = false
 let modalColorForTicket = 'lightpink'
 
 // Modal pop up Event
@@ -19,6 +21,28 @@ addBtn.addEventListener("click", function () {
     modalCont.style.display = "none";
   }
 });
+
+// Delete button activation and deactivation
+removeBtn.addEventListener('click' , function(){
+    removeBtnFlag = !removeBtnFlag
+
+    if(removeBtnFlag){
+        alert('Delete button Activated')
+        removeBtn.style.color = 'red'
+    }
+    else{
+          removeBtn.style.color = 'white'
+    }
+})
+
+function handleRemoval(ticket){
+  ticket.addEventListener('click' , function(){
+    if(removeBtnFlag==true){
+        ticket.remove()
+    }
+  })
+}
+
 
 // Create a ticket
 
@@ -34,6 +58,8 @@ function createTicket(ticketColor , ticketTask , ticketId) {
               </div>`;
 
               mainCont.appendChild(ticketCont)
+
+              handleRemoval(ticketCont)
 }
 
 // add a task

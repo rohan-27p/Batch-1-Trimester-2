@@ -2,6 +2,9 @@ const addBtn = document.querySelector(".add-btn");
 const modalCont = document.querySelector(".modal-cont");
 const taskArea = document.querySelector(".textArea-cont");
 const mainCont = document.querySelector('.main-cont')
+const allpriorityColors = document.querySelectorAll('.priority-color')
+
+console.log(allpriorityColors)
 
 let addBtnFlag = false;
 
@@ -46,3 +49,16 @@ modalCont.addEventListener("keydown", function (e) {
     
   }
 });
+
+
+// moving the active class on priority color boxes
+
+allpriorityColors.forEach(function(colorElem){
+    colorElem.addEventListener('click' , function(){
+       allpriorityColors.forEach(function(priorityColor){
+        priorityColor.classList.remove('active')
+       })
+
+       colorElem.classList.add('active')
+    })
+})

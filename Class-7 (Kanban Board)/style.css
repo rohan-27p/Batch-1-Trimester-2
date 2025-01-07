@@ -108,7 +108,7 @@
 
 
 .modal-cont{
-  display: flex;
+  display: none;
   height: 50vh;
   width: 45vw;
   background-color: gray;

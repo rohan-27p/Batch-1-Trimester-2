@@ -25,7 +25,7 @@ addBtn.addEventListener("click", function () {
 function createTicket(ticketColor , ticketTask , ticketId) {
   let ticketCont = document.createElement("div");
   ticketCont.setAttribute("class", "ticket-cont");
-  ticketCont.innerHTML = `<div class="ticket-cont">
+  ticketCont.innerHTML = `
              <div class="ticket-color" style="background-color:${ticketColor}"></div>
              <div class="ticket-id">${ticketId}</div>
              <div class="task-area">${ticketTask}</div>

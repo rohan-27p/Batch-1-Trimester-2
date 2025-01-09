@@ -4,8 +4,10 @@ const modalCont = document.querySelector(".modal-cont");
 const taskArea = document.querySelector(".textArea-cont");
 const mainCont = document.querySelector('.main-cont')
 const allpriorityColors = document.querySelectorAll('.priority-color')
+// priority colors array 
+let colors = ['lightpink' , 'lightgreen' , 'lightblue' , 'black']
 
-console.log(allpriorityColors)
+// console.log(allpriorityColors)
 
 let addBtnFlag = false;
 let removeBtnFlag = false
@@ -44,6 +46,32 @@ function handleRemoval(ticket){
 }
 
 
+// change priority color of tickets
+function handleColor(ticket){
+  let ticketColorBand = ticket.querySelector('.ticket-color')
+  ticketColorBand.addEventListener('click' , function(){
+     let currentColor = ticketColorBand.style.backgroundColor
+
+     let currentColorIdx = colors.findIndex(function(color){
+        return color === currentColor
+     })
+     
+     currentColorIdx++
+
+     let newColorIdx = currentColorIdx % colors.length
+      // 1 // 2 // 3 // 4->0
+     let newColor = colors[newColorIdx]
+
+     ticketColorBand.style.backgroundColor = newColor
+
+   
+
+
+  })
+}
+
+
+
 // Create a ticket
 
 function createTicket(ticketColor , ticketTask , ticketId) {
@@ -60,6 +88,7 @@ function createTicket(ticketColor , ticketTask , ticketId) {
               mainCont.appendChild(ticketCont)
 
               handleRemoval(ticketCont)
+              handleColor(ticketCont)
 }
 
 // add a task

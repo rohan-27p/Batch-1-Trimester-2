@@ -13,6 +13,15 @@ let addBtnFlag = false;
 let removeBtnFlag = false
 let modalColorForTicket = 'lightpink'
 
+
+// Lock Classes
+
+
+let lockClose = 'fa-lock'
+let lockOpen  = 'fa-lock-open'
+
+
+
 // Modal pop up Event
 
 addBtn.addEventListener("click", function () {
@@ -70,6 +79,31 @@ function handleColor(ticket){
   })
 }
 
+// handle Lock for content edit
+
+function handleLock(ticket){
+   let ticketLockCont = ticket.querySelector(".ticket-lock")
+   let ticketLockIcon = ticketLockCont.children[0]
+   let ticketTaskArea = ticket.querySelector('.task-area')
+   console.log(ticketLockIcon)
+
+   ticketLockIcon.addEventListener('click' , function(){
+     if(ticketLockIcon.classList.contains(lockClose)){
+       ticketLockIcon.classList.remove(lockClose)
+       ticketLockIcon.classList.add(lockOpen)
+
+       ticketTaskArea.setAttribute('contenteditable' , 'true')
+     }
+     else{
+      ticketLockIcon.classList.remove(lockOpen)
+      ticketLockIcon.classList.add(lockClose)
+      // should not be editing the task
+      ticketTaskArea.setAttribute('contenteditable' , 'false')
+     }
+   })
+
+}
+
 
 
 // Create a ticket
@@ -89,6 +123,7 @@ function createTicket(ticketColor , ticketTask , ticketId) {
 
               handleRemoval(ticketCont)
               handleColor(ticketCont)
+              handleLock(ticketCont)
 }
 
 // add a task

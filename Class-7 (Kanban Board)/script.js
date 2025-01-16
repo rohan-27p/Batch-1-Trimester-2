@@ -5,8 +5,11 @@ const taskArea = document.querySelector(".textArea-cont");
 const mainCont = document.querySelector(".main-cont");
 const allpriorityColors = document.querySelectorAll(".priority-color");
 
+let ticketsArr = [];
+console.log(ticketsArr);
+
 let toolBoxColors = document.querySelectorAll(".color");
-console.log(toolBoxColors);
+
 // priority colors array
 let colors = ["lightpink", "lightgreen", "lightblue", "black"];
 
@@ -78,7 +81,6 @@ function handleLock(ticket) {
   let ticketLockCont = ticket.querySelector(".ticket-lock");
   let ticketLockIcon = ticketLockCont.children[0];
   let ticketTaskArea = ticket.querySelector(".task-area");
-  console.log(ticketLockIcon);
 
   ticketLockIcon.addEventListener("click", function () {
     if (ticketLockIcon.classList.contains(lockClose)) {
@@ -115,6 +117,8 @@ function createTicket(ticketColor, ticketTask, ticketId) {
   handleRemoval(ticketCont);
   handleColor(ticketCont);
   handleLock(ticketCont);
+  ticketsArr.push({ color: ticketColor, task: ticketTask, id: ticketId });
+  updateLocalStorage()
 }
 
 // add a task
@@ -147,7 +151,7 @@ allpriorityColors.forEach(function (colorElem) {
 toolBoxColors.forEach(function (color) {
   color.addEventListener("click", function () {
     const allTickets = document.querySelectorAll(".ticket-cont");
-    console.log(allTickets);
+
     let selectedColor = color.classList[0];
 
     allTickets.forEach(function (ticket) {
@@ -160,3 +164,7 @@ toolBoxColors.forEach(function (color) {
     });
   });
 });
+
+function updateLocalStorage() {
+  localStorage.setItem("apptickets", JSON.stringify(ticketsArr));
+}

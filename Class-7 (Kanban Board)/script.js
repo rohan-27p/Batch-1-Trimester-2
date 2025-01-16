@@ -5,7 +5,21 @@ const taskArea = document.querySelector(".textArea-cont");
 const mainCont = document.querySelector(".main-cont");
 const allpriorityColors = document.querySelectorAll(".priority-color");
 
-let ticketsArr = [];
+let ticketsArr =JSON.parse(localStorage.getItem('apptickets'))||[]
+
+
+function init(){
+  if(localStorage.getItem('apptickets')){
+    ticketsArr.forEach(function(ticket){
+      createTicket(ticket.color , ticket.task , ticket.id)
+    })
+  }
+}
+
+init()
+
+// if the ticketArr is Empty , if the ticketsArr is not Empty
+
 console.log(ticketsArr);
 
 let toolBoxColors = document.querySelectorAll(".color");
@@ -117,8 +131,7 @@ function createTicket(ticketColor, ticketTask, ticketId) {
   handleRemoval(ticketCont);
   handleColor(ticketCont);
   handleLock(ticketCont);
-  ticketsArr.push({ color: ticketColor, task: ticketTask, id: ticketId });
-  updateLocalStorage()
+
 }
 
 // add a task
@@ -132,6 +145,8 @@ modalCont.addEventListener("keydown", function (e) {
     modalCont.style.display = "none";
     taskArea.value = "";
     addBtnFlag = false;
+    ticketsArr.push({ color: modalColorForTicket, task: task, id: id });
+    updateLocalStorage()
   }
 });
 

@@ -5,7 +5,20 @@ const taskArea = document.querySelector(".textArea-cont");
 const mainCont = document.querySelector(".main-cont");
 const allpriorityColors = document.querySelectorAll(".priority-color");
 
-let ticketsArr = [];
+let ticketsArr = JSON.parse(localStorage.getItem("apptickets")) || [];
+
+function init() {
+  if (localStorage.getItem("apptickets")) {
+    ticketsArr.forEach(function (ticket) {
+      createTicket(ticket.color, ticket.task, ticket.id);
+    });
+  }
+}
+
+init();
+
+// if the ticketArr is Empty , if the ticketsArr is not Empty
+
 console.log(ticketsArr);
 
 let toolBoxColors = document.querySelectorAll(".color");
@@ -58,7 +71,14 @@ function handleRemoval(ticket) {
 // change priority color of tickets
 function handleColor(ticket) {
   let ticketColorBand = ticket.querySelector(".ticket-color");
+
+  const id = ticket.querySelector('.ticket-id').innerText
+  
+  
   ticketColorBand.addEventListener("click", function () {
+    let ticketIdx = getIdx(id)
+    console.log(ticketIdx)
+
     let currentColor = ticketColorBand.style.backgroundColor;
 
     let currentColorIdx = colors.findIndex(function (color) {
@@ -72,6 +92,8 @@ function handleColor(ticket) {
     let newColor = colors[newColorIdx];
 
     ticketColorBand.style.backgroundColor = newColor;
+    ticketsArr[ticketIdx].color = newColor
+    updateLocalStorage()
   });
 }
 
@@ -83,11 +105,13 @@ function handleLock(ticket) {
   let ticketTaskArea = ticket.querySelector(".task-area");
 
   ticketLockIcon.addEventListener("click", function () {
+    // get the idx with the help of id 
     if (ticketLockIcon.classList.contains(lockClose)) {
       ticketLockIcon.classList.remove(lockClose);
       ticketLockIcon.classList.add(lockOpen);
 
       ticketTaskArea.setAttribute("contenteditable", "true");
+      
     } else {
       ticketLockIcon.classList.remove(lockOpen);
       ticketLockIcon.classList.add(lockClose);
@@ -117,8 +141,6 @@ function createTicket(ticketColor, ticketTask, ticketId) {
   handleRemoval(ticketCont);
   handleColor(ticketCont);
   handleLock(ticketCont);
-  ticketsArr.push({ color: ticketColor, task: ticketTask, id: ticketId });
-  updateLocalStorage()
 }
 
 // add a task
@@ -132,6 +154,8 @@ modalCont.addEventListener("keydown", function (e) {
     modalCont.style.display = "none";
     taskArea.value = "";
     addBtnFlag = false;
+    ticketsArr.push({ color: modalColorForTicket, task: task, id: id });
+    updateLocalStorage();
   }
 });
 
@@ -167,4 +191,13 @@ toolBoxColors.forEach(function (color) {
 
 function updateLocalStorage() {
   localStorage.setItem("apptickets", JSON.stringify(ticketsArr));
+}
+// Lolv-jd2dy
+function getIdx(id)
+ {
+  let ticketIdx = ticketsArr.findIndex(function (ticketContaiers) {
+    return ticketContaiers.id ==id
+  });
+
+  return  ticketIdx
 }

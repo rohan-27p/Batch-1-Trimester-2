@@ -27,7 +27,7 @@
 //   }
 
 function prepareIngredients() {
-  return new Promise(function (resolve, reject) {
+  return new Promise(function (resolve) {
     setTimeout(function () {
       resolve("Ingredients Prepared");
     }, 2000);

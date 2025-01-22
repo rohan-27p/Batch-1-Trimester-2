@@ -11,14 +11,14 @@
 //       callback();
 //     }, 1000);
 //   }
-  
+
 //   function serveDish(callback) {
 //     setTimeout(function () {
 //       console.log("Dish Served");
 //       callback();
 //     }, 500);
 //   }
-  
+
 //   function cleanUp(callback) {
 //     setTimeout(function () {
 //       console.log("Table cleaned");
@@ -27,72 +27,84 @@
 //   }
 
 function prepareIngredients() {
-    return new Promise(function(resolve, reject){
-        setTimeout(function () {
-           resolve("Ingredients Prepared");
-          }, 2000);
-
-          reject('Ingredients Not prepared')
-    })
-   
-  }
-
-  function cookdish() {
-    return new Promise(function(resolve, reject){
-        setTimeout(function () {
-           resolve("Dish Prepared");
-          }, 2000);
-
-          reject('Dish not prepared')
-    })
-   
-  }
-
-  function serveDish() {
-    return new Promise(function(resolve, reject){
-        setTimeout(function () {
-           resolve("Dish Served");
-          }, 2000);
-
-          reject('Dish not served')
-    })
-   
-  }
-
-  function cleanUp() {
-    return new Promise(function(resolve, reject){
-        setTimeout(function () {
-           resolve("Table Cleaned");
-          }, 2000);
-
-          reject('Table not cleaned')
-    })
-   
-  }
-
-
-
-function provideFeedback(callback){
+  return new Promise(function (resolve, reject) {
     setTimeout(function () {
-        console.log("Table cleaned");
-        callback()
-      }, 1500);  
-}
+      resolve("Ingredients Prepared");
+    }, 2000);
 
-function leaveTable(){
-    setTimeout(function () {
-        console.log("Table cleaned");
-      }, 1000);  
-}
-
-prepareIngredients(function () {
-  cookDish(function () {
-    serveDish(function () {
-      cleanUp(function(){
-        provideFeedback(function(){
-            leaveTable()
-        })
-      });
-    });
   });
-});
+}
+
+function cookdish() {
+  return new Promise(function (resolve, reject) {
+    setTimeout(function () {
+      resolve("Dish Prepared");
+    }, 2000);
+
+
+  });
+}
+
+function serveDish() {
+  return new Promise(function (resolve, reject) {
+    setTimeout(function () {
+      resolve("Dish Served");
+    }, 2000);
+
+  
+  });
+}
+
+function cleanUp() {
+  return new Promise(function (resolve, reject) {
+    setTimeout(function () {
+      resolve("Table Cleaned");
+    }, 2000);
+
+   
+  });
+}
+
+function provideFeedback(callback) {
+  setTimeout(function () {
+    console.log("Table cleaned");
+    callback();
+  }, 1500);
+}
+
+function leaveTable() {
+  setTimeout(function () {
+    console.log("Table cleaned");
+  }, 1000);
+}
+
+// prepareIngredients(function () {
+//   cookDish(function () {
+//     serveDish(function () {
+//       cleanUp(function () {
+//         provideFeedback(function () {
+//           leaveTable();
+//         });
+//       });
+//     });
+//   });
+// });
+
+// Promise Chaining
+
+prepareIngredients().then(function(ingredients){
+  console.log(ingredients)
+  return cookdish()
+}).then(function(cooked){
+  console.log(cooked)
+  return serveDish()
+}).then(function(dishServed){
+   console.log(dishServed)
+   return cleanUp()
+}).then(function(cleaned){
+  console.log(cleaned)
+}).catch(function(err){
+    console.log(err)
+}).finally(function(){
+    console.log('process done')
+})
